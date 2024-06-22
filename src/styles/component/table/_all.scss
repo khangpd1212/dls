@@ -1,0 +1,112 @@
+$tablePrefixCls: tera-table;
+.#{$tablePrefixCls} {
+  position: relative;
+  background-color: white;
+  &-container {
+    height: 100%;
+  }
+  &-body {
+    height: 88.4%;
+    // overflow: auto !important;
+  }
+  table {
+    width: 100%;
+    border-spacing: 0px;
+  }
+  &-expanded-row-fixed {
+    margin: -16px;
+    padding: 16px;
+  }
+  &-thead {
+    .tera-table-cell {
+      @apply text-xxs font-semibold text-gray-500 bg-blue-50 py-2.5 px-3;
+    }
+  }
+  &-row {
+    background-color: white;
+
+    &.tera-table-row-level-1 {
+      background-color: rgb(249 250 251) !important;
+
+      // & .tera-table-cell-row-hover {
+      //   background-color: #fff !important;
+      // }
+    }
+
+    &.tera-table-cell-row-zebra:nth-child(even) {
+      background-color: white;
+    }
+
+    &.tera-table-cell-row-zebra:nth-child(odd) {
+      @apply bg-gray-50;
+    }
+
+    .tera-table-cell {
+      @apply text-xxs py-2 px-3;
+      line-height: 1.2;
+      border-bottom: 1px solid #e7ebee;
+      &-row-hover {
+        @apply bg-gray-100;
+      }
+    }
+  }
+  &-cell-row-focused {
+    background-color: #e8f5ff;
+  }
+
+  &-cell {
+    position: relative;
+    word-break: break-word;
+    text-align: start;
+    background-color: inherit;
+    vertical-align: top;
+    &-ellipsis {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    // &-scrollbar::after {
+    //   position: absolute;
+    //   top: 0;
+    //   left: -3px;
+    //   bottom: 0px;
+    //   width: 3px;
+    //   content: '';
+    //   background-color: #f7f9fa;
+    // }
+
+    &-fix-right,
+    &-fix-left {
+      z-index: 1;
+    }
+    &-fix-right-first,
+    &-fix-left-last {
+      z-index: 1;
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0px;
+        width: 20px;
+        transition: box-shadow 0.3s;
+        content: '';
+        pointer-events: none;
+      }
+    }
+    &-fix-right-first::after {
+      left: 0px;
+    }
+    &-fix-left-last::after {
+      right: 0;
+    }
+  }
+}
+.#{$tablePrefixCls}-ping-right {
+  .#{$tablePrefixCls}-cell-fix-right-first::after {
+    box-shadow: -2px 0px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+}
+.#{$tablePrefixCls}-ping-left {
+  .#{$tablePrefixCls}-cell-fix-left-last::after {
+    box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+}

@@ -1,0 +1,48 @@
+.opacity-motion {
+  transition: opacity 0.2s;
+
+  &-enter {
+    opacity: 0;
+  }
+
+  &-appear-active,
+  &-enter-active {
+    opacity: 1;
+  }
+
+  &-leave-active {
+    opacity: 0;
+  }
+}
+
+.zoom-motion {
+  animation-duration: 0.3s;
+  &-appear-active,
+  &-enter-active {
+    animation-name: zoomIn;
+  }
+  &-leave-active {
+    animation-name: zoomOut;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,36 @@
+/* Bootstrap tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .link-outer-container {
+    @apply [&_a]:before:inset-0 [&_a]:before:absolute [&_a]:before:bg-transparent;
+  }
+  .bg-default {
+    background-color: #fafaf9;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+// abstracts
+@import './abstracts/all';
+
+// Component
+@import './component/all';
+// @import './fonts/all';
+body {
+  font-family: $body-font-family;
+  overflow-x: hidden;
+  @apply text-gray-700 text-xxs;
+}

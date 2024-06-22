@@ -1,0 +1,123 @@
+.#{$pickerPrefixCls}-panel {
+  .#{$pickerPrefixCls}-time-panel {
+    // padding-top: 4px;
+    width: auto;
+    min-width: auto;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    .#{$pickerPrefixCls}-content {
+      text-align: center;
+      display: flex;
+      flex: auto;
+      height: 224px;
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      .#{$pickerPrefixCls}-time-panel-column {
+        position: relative;
+        flex: 1 0 auto;
+        width: 56px;
+        margin: 4px 0;
+        padding: 0;
+        overflow-y: hidden;
+        text-align: start;
+        list-style: none;
+        transition: background 0.2s;
+        overflow-x: hidden;
+        &:hover {
+          overflow-y: auto;
+        }
+        &:not(:first-child) {
+          border-inline-start: 1px solid rgba(5, 5, 5, 0.06);
+        }
+      }
+      .#{$pickerPrefixCls}-time-panel-cell-selected {
+        .#{$pickerPrefixCls}-time-panel-cell-inner {
+          background-color: #e1effe;
+        }
+      }
+      .#{$pickerPrefixCls}-time-panel-cell {
+        margin-inline: 4px;
+        &-inner {
+          display: block;
+          width: 48px;
+          height: 28px;
+          margin: 0;
+          padding-block: 0;
+          padding-inline-end: 0;
+          padding-inline-start: 14px;
+          color: rgba(0, 0, 0, 0.88);
+          line-height: 28px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background 0.2s;
+          &:hover {
+            background: rgba(0, 0, 0, 0.04);
+          }
+        }
+      }
+    }
+  }
+}
+.#{$pickerPrefixCls}-footer {
+  border-top: 1px solid rgba(5, 5, 5, 0.06);
+  width: min-content;
+  min-width: 100%;
+
+  text-align: center;
+  .#{$pickerPrefixCls}-ranges {
+    margin-bottom: 0;
+    padding: 4px 12px;
+    overflow: hidden;
+    line-height: 34px;
+    text-align: start;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+    > li {
+      display: inline-block;
+    }
+    .#{$pickerPrefixCls}-now {
+      text-align: start;
+      &-btn {
+        color: #1677ff;
+        text-decoration: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+        transition: color 0.3s;
+        &:hover {
+          text-decoration: none;
+          outline: 0;
+          color: #69b1ff;
+        }
+      }
+    }
+    .#{$pickerPrefixCls}-ok {
+      margin-inline-start: auto;
+      & > button {
+        display: inline-block;
+        white-space: nowrap;
+        height: 28px;
+        text-align: center;
+        padding: 0 12px;
+        line-height: 1;
+        border-radius: 3px;
+        background-color: #1a56db;
+        color: white;
+        &:disabled {
+          background-color: rgb(209 213 219);
+          color: white;
+          border: none;
+          pointer-events: none;
+          cursor: not-allowed;
+        }
+        &:hover {
+          background-color: #1e429f;
+        }
+      }
+    }
+  }
+}

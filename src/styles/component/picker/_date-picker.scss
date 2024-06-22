@@ -1,0 +1,154 @@
+.#{$pickerPrefixCls} {
+  &-date {
+    input {
+      @apply border border-gray-200 rounded-xsm px-3 py-2 text-xxs placeholder:text-gray-400 focus-visible:outline-none w-full transition-all outline-none leading-[18px];
+      &:focus {
+        @apply ring border-blue-700 ring-blue-300;
+      }
+    }
+    &:hover .#{$pickerPrefixCls}-clear {
+      opacity: 1;
+    }
+    &.#{$pickerPrefixCls}-error:not(.#{$pickerPrefixCls}-disabled) {
+      input {
+        @apply focus:ring border-red-700 focus:border-red-700 focus:ring-red-300;
+      }
+    }
+  }
+  &-dropdown {
+    .#{$pickerPrefixCls}-year-panel,
+    .#{$pickerPrefixCls}-quarter-panel,
+    .#{$pickerPrefixCls}-month-panel {
+      .#{$pickerPrefixCls}-cell-inner {
+        width: 60px;
+        padding: 0 8px;
+      }
+    }
+    .#{$pickerPrefixCls}-year-panel,
+    .#{$pickerPrefixCls}-decade-panel,
+    .#{$pickerPrefixCls}-quarter-panel,
+    .#{$pickerPrefixCls}-month-panel {
+      .#{$pickerPrefixCls}-content {
+        height: 264px;
+      }
+
+      .#{$pickerPrefixCls}-body {
+        padding: 0 8px;
+      }
+    }
+    .#{$pickerPrefixCls}-content {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+    .#{$pickerPrefixCls}-cell {
+      padding: 6px 0;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.25);
+      &::before {
+        position: absolute;
+        top: 50%;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
+        z-index: 1;
+        height: 24px;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+        content: '';
+      }
+      &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(
+          &-range-hover-start
+        ):not(&-range-hover-end)
+        .#{$pickerPrefixCls}-cell-inner {
+        background: rgba(0, 0, 0, 0.04);
+      }
+      &-today > .#{$pickerPrefixCls}-cell-inner {
+        border: 1px solid #3f83f8;
+      }
+      &-selected > .#{$pickerPrefixCls}-cell-inner {
+        color: #ffffff;
+        background-color: #3f83f8;
+      }
+
+      &-in-view {
+        color: rgba(0, 0, 0, 0.88);
+      }
+      &-inner {
+        display: inline-block;
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 4px;
+        position: relative;
+        z-index: 2;
+        transition: background 0.2s, border 0.2s;
+      }
+    }
+  }
+}
+.#{$pickerPrefixCls}-panel {
+  .#{$pickerPrefixCls}-header {
+    display: flex;
+    padding: 0 8px;
+    color: rgba(0, 0, 0, 0.88);
+    border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+    &-view {
+      flex: auto;
+      font-weight: 600;
+      line-height: 40px;
+      > button {
+        color: inherit;
+        font-weight: inherit;
+        vertical-align: top;
+        &:hover {
+          color: #3f83f8;
+        }
+        &:not(:first-child) {
+          margin-inline-start: 8px;
+        }
+      }
+    }
+    > button {
+      min-width: 0.7em;
+      font-size: 28px;
+      padding: 0;
+      color: rgba(0, 0, 0, 0.45);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      transition: color 0.2s;
+      &:hover {
+        color: rgba(0, 0, 0, 0.88);
+      }
+    }
+  }
+  .#{$pickerPrefixCls}-date-panel,
+  .#{$pickerPrefixCls}-year-panel,
+  .#{$pickerPrefixCls}-decade-panel,
+  .#{$pickerPrefixCls}-month-panel {
+    width: 288px;
+    display: flex;
+    flex-direction: column;
+    th {
+      width: 36px;
+      color: rgba(0, 0, 0, 0.88);
+      vertical-align: middle;
+      position: relative;
+      min-width: 24px;
+      font-weight: 400;
+    }
+    td {
+      position: relative;
+      min-width: 24px;
+      font-weight: 400;
+    }
+  }
+  .#{$pickerPrefixCls}-date-panel {
+    .#{$pickerPrefixCls}-body {
+      padding: 8px 18px;
+    }
+  }
+  .#{$pickerPrefixCls}-decade-panel .#{$pickerPrefixCls}-cell-inner {
+    padding: 0 4px;
+  }
+}

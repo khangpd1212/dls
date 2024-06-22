@@ -1,0 +1,45 @@
+$notificationPrefixCls: tera-notification;
+
+.#{$notificationPrefixCls} {
+  // ====================== Notification ======================
+  position: fixed;
+  z-index: 70;
+  display: flex;
+  max-height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-items: flex-end;
+
+  // Position
+  &-top,
+  &-topLeft,
+  &-topRight {
+    top: 0;
+    flex-direction: column;
+  }
+
+  &-topRight {
+    right: 0;
+  }
+
+  // ========================= Notice =========================
+  &-notice {
+    position: relative;
+  }
+
+  &-fade {
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  &-fade-appear-start {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  &-fade-appear-active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

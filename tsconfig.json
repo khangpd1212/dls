@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "lib",
+    "outDir": "lib",
+    "module": "esnext",
+    "target": "ES6",
+    "lib": ["ES6", "dom", "es2020"],
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "noImplicitAny": false
+  },
+  "include": ["src/**/*", "index.d.ts"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "storybook-static",
+    "src/**/*.stories.tsx",
+    "src/**/*.test.tsx"
+  ]
+}

@@ -1,0 +1,185 @@
+$pickerPrefixCls: tera-picker;
+
+.#{$pickerPrefixCls}-range-wrapper {
+  display: flex;
+  position: relative;
+  .#{$pickerPrefixCls}-year-panel {
+    // picker range year
+    .#{$pickerPrefixCls}-cell-in-view.#{$pickerPrefixCls}-cell-range-hover-start::after {
+      inset-inline-start: 18.6px;
+    }
+  }
+  .#{$pickerPrefixCls}-cell-in-view {
+    &.#{$pickerPrefixCls}-cell-range-hover,
+    &.#{$pickerPrefixCls}-cell-range-hover-end,
+    &.#{$pickerPrefixCls}-cell-range-hover-start {
+      &::after {
+        position: absolute;
+        top: 50%;
+        z-index: 0;
+        height: 24px;
+        border-top: 1px dashed #7cb3ff;
+        border-bottom: 1px dashed #7cb3ff;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+        content: '';
+      }
+    }
+
+    &.#{$pickerPrefixCls}-cell-range-hover-end {
+      &::after {
+        inset-inline-end: 6px;
+        border-inline-end: 1px dashed #7cb3ff;
+        border-start-end-radius: 1px;
+        border-end-end-radius: 1px;
+        inset-inline-start: 3px;
+      }
+    }
+    &.#{$pickerPrefixCls}-cell-range-hover-start {
+      &::after {
+        inset-inline-start: 6px;
+        border-inline-start: 1px dashed #7cb3ff;
+        border-start-start-radius: 1px;
+        border-end-start-radius: 1px;
+        inset-inline-end: 0;
+      }
+    }
+    &.#{$pickerPrefixCls}-cell-range-hover {
+      &::after {
+        inset-inline-start: 2px;
+        inset-inline-end: 0px;
+      }
+    }
+    &.#{$pickerPrefixCls}-cell-range-start,
+    &.#{$pickerPrefixCls}-cell-range-end {
+      .#{$pickerPrefixCls}-cell-inner {
+        background-color: #3f83f8;
+        color: #ffffff;
+      }
+    }
+    &.#{$pickerPrefixCls}-cell-range-start {
+      &:not(.#{$pickerPrefixCls}-cell-range-start-single) {
+        &::before {
+          margin-inline-start: 50%;
+          background-color: #e1effe;
+        }
+        &.#{$pickerPrefixCls}-cell-range-hover-start {
+          &::before {
+            background-color: #c3ddfd;
+          }
+        }
+      }
+    }
+    &.#{$pickerPrefixCls}-cell-range-end {
+      &:not(.#{$pickerPrefixCls}-cell-range-end-single) {
+        &::before {
+          margin-inline-end: 50%;
+          background-color: #e1effe;
+        }
+      }
+      &.#{$pickerPrefixCls}-cell-range-hover-end {
+        &::before {
+          background-color: #c3ddfd;
+        }
+      }
+    }
+
+    &.#{$pickerPrefixCls}-cell-in-range {
+      &::before {
+        background-color: #e1effe;
+      }
+      &.#{$pickerPrefixCls}-cell-range-hover-end {
+        &::before {
+          background-color: #c3ddfd;
+        }
+      }
+      &.#{$pickerPrefixCls}-cell-range-hover {
+        &::before {
+          background-color: #c3ddfd;
+        }
+      }
+      &.#{$pickerPrefixCls}-cell-range-hover-start {
+        &::before {
+          background-color: #c3ddfd;
+        }
+      }
+    }
+  }
+}
+.#{$pickerPrefixCls}-range {
+  position: relative;
+  display: inline-flex;
+  padding: 10px 16px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 3px;
+  font-size: 0.813rem;
+  line-height: 0.983rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  &:hover .#{$pickerPrefixCls}-clear {
+    opacity: 1;
+  }
+  &.#{$pickerPrefixCls}-focused {
+    box-shadow: 0 0 0 2px #a4cafe;
+    border: 1px solid #1a56db;
+    border-inline-end-width: 1px;
+    outline: 0;
+    .#{$pickerPrefixCls}-active-bar {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    border: 1px solid #1a56db;
+  }
+  &-separator {
+    padding: 0px 8px;
+  }
+  .#{$pickerPrefixCls}-active-bar {
+    bottom: -1px;
+    height: 2px;
+    background: #1a56db;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+  }
+
+  .#{$pickerPrefixCls}-input > input {
+    min-width: 1px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: 0;
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+
+  &.#{$pickerPrefixCls}-error:not(.#{$pickerPrefixCls}-disabled) {
+    @apply border-red-700;
+    &:hover {
+      @apply border-red-700;
+    }
+    &.#{$pickerPrefixCls}-focused {
+      box-shadow: 0 0 0 3px #f8b4b4;
+      border: 1px solid #c81e1e;
+    }
+    .#{$pickerPrefixCls}-active-bar {
+      background: #c81e1e;
+    }
+  }
+}
+
+.tera-picker-panel .tera-picker-quarter-panel {
+  width: 288px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tera-picker-dropdown .tera-picker-quarter-panel .tera-picker-content {
+  .tera-picker-cell-in-view::before {
+    display: none;
+  }
+  height: 50px;
+}
